@@ -43,3 +43,7 @@ li {
   padding: 10px;
   border-radius: 5px;
 }
+.completed {
+  text-decoration: line-through;
+  color: gray;
+}

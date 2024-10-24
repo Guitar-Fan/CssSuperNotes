@@ -21,7 +21,9 @@ h1 {
   margin-bottom: 20px;
 }
 
-input[type="text"] {
+input[type="text"],
+input[type="date"],
+input[type="time"] {
   width: calc(100% - 22px);
   padding: 10px;
   margin-bottom: 10px;

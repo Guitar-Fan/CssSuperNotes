@@ -4,11 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CSS Techniques Showcase</title>
-    <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;700&display=swap" rel="stylesheet">
     <style>
         /* General Styles */
         body {
-            font-family: 'Lobster', cursive;
+            font-family: 'Fira Code', monospace;
+            font-size: 18px; /* Increase font size */
             margin: 0;
             padding: 0;
             background: #f4f4f4;
@@ -24,7 +25,7 @@
         section {
             padding: 20px;
             margin: 20px;
-            background: white;
+            background: lightgray;
             border-radius: 8px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
@@ -127,7 +128,8 @@
             padding: 20px;
             border-radius: 8px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            font-family: 'Courier New', Courier, monospace;
+            font-family: 'Fira Code', monospace;
+            font-size: 18px; /* Increase font size */
             overflow-x: auto;
         }
 
@@ -140,10 +142,22 @@
             height: 200px;
             border: none;
             background: transparent;
-            font-family: 'Courier New', Courier, monospace;
-            font-size: 14px;
+            font-family: 'Fira Code', monospace;
+            font-size: 18px; /* Increase font size */
             resize: none;
             outline: none;
+            tab-size: 4; /* Add this line */
+        }
+
+        .non-editable-code {
+            font-size: 20px; /* Increase font size */
+            background: #f4f4f4;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            font-family: 'Fira Code', monospace;
+            overflow-x: auto;
+            white-space: pre-wrap;
         }
     </style>
 </head>
@@ -152,27 +166,36 @@
         <h1>CSS Techniques Showcase</h1>
     </header>
     <section id="selectors">
-        <h2>Important Selectors</h2>
+        <h2>CSS Selectors</h2>
+        <p>CSS selectors are used to select the HTML elements you want to style. Here are some common types of selectors:</p>
+        <ul>
+            <li><strong>Class Selector:</strong> Selects elements with a specific class attribute. Example: <code>.classname</code></li>
+            <li><strong>ID Selector:</strong> Selects a single element with a specific ID attribute. Example: <code>#idname</code></li>
+            <li><strong>Tag Selector:</strong> Selects all elements of a given type. Example: <code>p</code> for all paragraph elements.</li>
+            <li><strong>Attribute Selector:</strong> Selects elements with a specific attribute. Example: <code>[type="text"]</code></li>
+            <li><strong>Universal Selector:</strong> Selects all elements. Example: <code>*</code></li>
+            <li><strong>Descendant Selector:</strong> Selects elements that are descendants of another element. Example: <code>div p</code></li>
+            <li><strong>Child Selector:</strong> Selects elements that are direct children of another element. Example: <code>div > p</code></li>
+            <li><strong>Adjacent Sibling Selector:</strong> Selects an element that is immediately preceded by another element. Example: <code>h1 + p</code></li>
+            <li><strong>General Sibling Selector:</strong> Selects all elements that are preceded by a specified element. Example: <code>h1 ~ p</code></li>
+        </ul>
         <div class="showcase">
             <div class="showcase-demo">
-                <p class="selector-example">This is a class selector example.</p>
-                <p id="id-example">This is an ID selector example.</p>
-                <p>This is a tag selector example.</p>
-            </div>
-            <div class="showcase-code">
-                <textarea id="selectors-code">
-.selector-example {
-    color: blue;
-}
-
-#id-example {
-    color: red;
-}
-
-p {
-    font-style: italic;
-}
-                </textarea>
+                <div class="non-editable-code">
+                    .classname {
+                        color: blue;
+                    }
+                </div>
+                <div class="non-editable-code">
+                    #idname {
+                        color: red;
+                    }
+                </div>
+                <div class="non-editable-code">
+                    p {
+                        font-style: italic;
+                    }
+                </div>
             </div>
         </div>
     </section>
@@ -207,7 +230,7 @@ p {
         <h2>Magic Carpet Animation</h2>
         <div class="magic-carpet"></div>
     </section>
-    <audio id="background-music" src="LaCampenella.mp3" loop autoplay style="display: none;"></audio>
+    <audio id="background-music" src="Family.mp3" loop autoplay style="display: none;"></audio>
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             const backgroundCode = document.getElementById('background-code');
@@ -226,6 +249,19 @@ p {
             });
 
             // Add similar event listeners for other sections as needed
+
+            // Enable tab key for 4 spaces in the textareas
+            document.querySelectorAll('textarea').forEach(textarea => {
+                textarea.addEventListener('keydown', function(e) {
+                    if (e.key === 'Tab') {
+                        e.preventDefault();
+                        const start = this.selectionStart;
+                        const end = this.selectionEnd;
+                        this.value = this.value.substring(0, start) + '    ' + this.value.substring(end);
+                        this.selectionStart = this.selectionEnd = start + 4;
+                    }
+                });
+            });
         });
     </script>
 </body>

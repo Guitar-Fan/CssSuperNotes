@@ -149,3 +149,84 @@
 </head>
 <body>
     <header>
+        <h1>CSS Techniques Showcase</h1>
+    </header>
+    <section id="selectors">
+        <h2>Important Selectors</h2>
+        <div class="showcase">
+            <div class="showcase-demo">
+                <p class="selector-example">This is a class selector example.</p>
+                <p id="id-example">This is an ID selector example.</p>
+                <p>This is a tag selector example.</p>
+            </div>
+            <div class="showcase-code">
+                <textarea id="selectors-code">
+.selector-example {
+    color: blue;
+}
+
+#id-example {
+    color: red;
+}
+
+p {
+    font-style: italic;
+}
+                </textarea>
+            </div>
+        </div>
+    </section>
+    <section id="backgrounds">
+        <h2>Backgrounds</h2>
+        <div class="showcase">
+            <div class="showcase-demo">
+                <div class="background-example">Background Image with Gradient</div>
+            </div>
+            <div class="showcase-code">
+                <textarea id="background-code">
+.background-example {
+    background: linear-gradient(to right, rgba(178, 223, 219, 0.5), rgba(128, 203, 196, 0.5)), 
+                url('technology.jpg') no-repeat center center;
+    background-size: cover;
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 1.5em;
+}
+                </textarea>
+            </div>
+        </div>
+    </section>
+    <section id="border-image">
+        <h2>Border Image</h2>
+        <div class="border-image-example">Border Image Example</div>
+    </section>
+    <section id="magic-carpet">
+        <h2>Magic Carpet Animation</h2>
+        <div class="magic-carpet"></div>
+    </section>
+    <audio id="background-music" src="LaCampenella.mp3" loop autoplay style="display: none;"></audio>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const backgroundCode = document.getElementById('background-code');
+            const selectorsCode = document.getElementById('selectors-code');
+            
+            backgroundCode.addEventListener('input', () => {
+                const style = document.createElement('style');
+                style.innerHTML = backgroundCode.value;
+                document.head.appendChild(style);
+            });
+
+            selectorsCode.addEventListener('input', () => {
+                const style = document.createElement('style');
+                style.innerHTML = selectorsCode.value;
+                document.head.appendChild(style);
+            });
+
+            // Add similar event listeners for other sections as needed
+        });
+    </script>
+</body>
+</html>

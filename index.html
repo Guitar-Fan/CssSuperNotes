@@ -43,6 +43,15 @@
             font-size: 1.5em;
         }
 
+        .example {
+            background: linear-gradient(to right, rgba(178, 223, 219, 0.5), rgba(128, 203, 196, 0.5)), 
+                        url('technology.jpg') no-repeat center center;
+            background-size: cover;
+            align-items: center;
+            justify-content: center;
+            color: white;
+        }
+
         /* Selectors */
         .selector-example {
             color: blue;
@@ -169,35 +178,16 @@
         <h2>CSS Selectors</h2>
         <p>CSS selectors are used to select the HTML elements you want to style. Here are some common types of selectors:</p>
         <ul>
-            <li><strong>Class Selector:</strong> Selects elements with a specific class attribute. Example: <code>.classname</code></li>
-            <li><strong>ID Selector:</strong> Selects a single element with a specific ID attribute. Example: <code>#idname</code></li>
-            <li><strong>Tag Selector:</strong> Selects all elements of a given type. Example: <code>p</code> for all paragraph elements.</li>
-            <li><strong>Attribute Selector:</strong> Selects elements with a specific attribute. Example: <code>[type="text"]</code></li>
-            <li><strong>Universal Selector:</strong> Selects all elements. Example: <code>*</code></li>
-            <li><strong>Descendant Selector:</strong> Selects elements that are descendants of another element. Example: <code>div p</code></li>
-            <li><strong>Child Selector:</strong> Selects elements that are direct children of another element. Example: <code>div > p</code></li>
-            <li><strong>Adjacent Sibling Selector:</strong> Selects an element that is immediately preceded by another element. Example: <code>h1 + p</code></li>
-            <li><strong>General Sibling Selector:</strong> Selects all elements that are preceded by a specified element. Example: <code>h1 ~ p</code></li>
+            <li><strong>Class Selector:</strong> Selects elements with a specific class attribute. <span class="example">Example: <code>.classname</code></span></li>
+            <li><strong>ID Selector:</strong> Selects a single element with a specific ID attribute. <span class="example">Example: <code>#idname</code></span></li>
+            <li><strong>Tag Selector:</strong> Selects all elements of a given type. <span class="example">Example: <code>p</code> for all paragraph elements.</span></li>
+            <li><strong>Attribute Selector:</strong> Selects elements with a specific attribute. <span class="example">Example: <code>[type="text"]</code></span></li>
+            <li><strong>Universal Selector:</strong> Selects all elements. <span class="example">Example: <code>*</code></span></li>
+            <li><strong>Descendant Selector:</strong> Selects elements that are descendants of another element. <span class="example">Example: <code>div p</code></span></li>
+            <li><strong>Child Selector:</strong> Selects elements that are direct children of another element. <span class="example">Example: <code>div > p</code></span></li>
+            <li><strong>Adjacent Sibling Selector:</strong> Selects an element that is immediately preceded by another element. <span class="example">Example: <code>h1 + p</code></span></li>
+            <li><strong>General Sibling Selector:</strong> Selects all elements that are preceded by a specified element. <span class="example">Example: <code>h1 ~ p</code></span></li>
         </ul>
-        <div class="showcase">
-            <div class="showcase-demo">
-                <div class="non-editable-code">
-                    .classname {
-                        color: blue;
-                    }
-                </div>
-                <div class="non-editable-code">
-                    #idname {
-                        color: red;
-                    }
-                </div>
-                <div class="non-editable-code">
-                    p {
-                        font-style: italic;
-                    }
-                </div>
-            </div>
-        </div>
     </section>
     <section id="backgrounds">
         <h2>Backgrounds</h2>

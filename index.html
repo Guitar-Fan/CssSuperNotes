@@ -44,8 +44,7 @@
         }
 
         .example {
-            background: linear-gradient(to right, rgba(178, 223, 219, 0.5), rgba(128, 203, 196, 0.5)), 
-                        url('technology.jpg') no-repeat center center;
+            background-color:darkgreen;
             background-size: cover;
             align-items: center;
             justify-content: center;
@@ -178,17 +177,30 @@
         <h2>CSS Selectors</h2>
         <p>CSS selectors are used to select the HTML elements you want to style. Here are some common types of selectors:</p>
         <ul>
-            <li><strong>Class Selector:</strong> Selects elements with a specific class attribute. <span class="example">Example: <code>.classname</code></span></li>
-            <li><strong>ID Selector:</strong> Selects a single element with a specific ID attribute. <span class="example">Example: <code>#idname</code></span></li>
-            <li><strong>Tag Selector:</strong> Selects all elements of a given type. <span class="example">Example: <code>p</code> for all paragraph elements.</span></li>
-            <li><strong>Attribute Selector:</strong> Selects elements with a specific attribute. <span class="example">Example: <code>[type="text"]</code></span></li>
-            <li><strong>Universal Selector:</strong> Selects all elements. <span class="example">Example: <code>*</code></span></li>
-            <li><strong>Descendant Selector:</strong> Selects elements that are descendants of another element. <span class="example">Example: <code>div p</code></span></li>
-            <li><strong>Child Selector:</strong> Selects elements that are direct children of another element. <span class="example">Example: <code>div > p</code></span></li>
-            <li><strong>Adjacent Sibling Selector:</strong> Selects an element that is immediately preceded by another element. <span class="example">Example: <code>h1 + p</code></span></li>
-            <li><strong>General Sibling Selector:</strong> Selects all elements that are preceded by a specified element. <span class="example">Example: <code>h1 ~ p</code></span></li>
+            <li><strong>Class:</strong> Selects elements with a specific class attribute. <span class="example">Example: <code>.classname</code></span></li>
+            <li><strong>ID:</strong> Selects a single element with a specific ID attribute. <span class="example">Example: <code>#idname</code></span></li>
+            <li><strong>Tag:</strong> Selects all elements of a given type. <span class="example">Example: <code>p</code> for all paragraph elements.</span></li>
+            <li><strong>Attribute:</strong> Selects elements with a specific attribute. <span class="example">Example: <code>[type="text"]</code></span></li>
+            <li><strong>Universal:</strong> Selects all elements. <span class="example">Example: <code>*</code></span></li>
+            <li><strong>Descendant:</strong> Selects elements that are descendants of another element. <span class="example">Example: <code>div p</code></span></li>
+            <li><strong>Child:</strong> Selects elements that are direct children of another element. <span class="example">Example: <code>div > p</code></span></li>
+            <li><strong>Adjacent Sibling:</strong> Selects an element that is immediately preceded by another element. <span class="example">Example: <code>h1 + p</code></span></li>
+            <li><strong>General Sibling:</strong> Selects all elements that are preceded by a specified element. <span class="example">Example: <code>h1 ~ p</code></span></li>
         </ul>
     </section>
+    <section id="colors">
+    <h2>Colors in CSS</h2>
+    <p>Colors in CSS can be specified using predefined color names, HEX values, RGB, RGBA, HSL, and HSLA values. Here are some examples:</p>
+    <ul>
+        <li><strong>Color Names:</strong> <span style="color: red;">red</span>, <span style="color: blue;">blue</span>, <span style="color: green;">green</span></li>
+        <li><strong>HEX Values:</strong> <span style="color: #ff0000;">#ff0000</span>, <span style="color: #0000ff;">#0000ff</span>, <span style="color: #008000;">#008000</span></li>
+        <li><strong>RGB Values:</strong> <span style="color: rgb(255, 0, 0);">rgb(255, 0, 0)</span>, <span style="color: rgb(0, 0, 255);">rgb(0, 0, 255)</span>, <span style="color: rgb(0, 128, 0);">rgb(0, 128, 0)</span></li>
+        <li><strong>RGBA Values:</strong> <span style="color: rgba(255, 0, 0, 0.5);">rgba(255, 0, 0, 0.5)</span>, <span style="color: rgba(0, 0, 255, 0.5);">rgba(0, 0, 255, 0.5)</span>, <span style="color: rgba(0, 128, 0, 0.5);">rgba(0, 128, 0, 0.5)</span></li>
+        <li><strong>HSL Values:</strong> <span style="color: hsl(0, 100%, 50%);">hsl(0, 100%, 50%)</span>, <span style="color: hsl(240, 100%, 50%);">hsl(240, 100%, 50%)</span>, <span style="color: hsl(120, 100%, 25%);">hsl(120, 100%, 25%)</span></li>
+        <li><strong>HSLA Values:</strong> <span style="color: hsla(0, 100%, 50%, 0.5);">hsla(0, 100%, 50%, 0.5)</span>, <span style="color: hsla(240, 100%, 50%, 0.5);">hsla(240, 100%, 50%, 0.5)</span>, <span style="color: hsla(120, 100%, 25%, 0.5);">hsla(120, 100%, 25%, 0.5)</span></li>
+    </ul>
+</section>
+
     <section id="backgrounds">
         <h2>Backgrounds</h2>
         <div class="showcase">
@@ -220,7 +232,6 @@
         <h2>Magic Carpet Animation</h2>
         <div class="magic-carpet"></div>
     </section>
-    <audio id="background-music" src="Family.mp3" loop autoplay style="display: none;"></audio>
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             const backgroundCode = document.getElementById('background-code');

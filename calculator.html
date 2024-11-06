@@ -1,0 +1,197 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Offline Calculator</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      background-color: #f0f0f0;
+    }
+    #calculator {
+      border: 1px solid #000;
+      border-radius: 5px;
+      padding: 20px;
+      background-color: #fff;
+      width: 260px;
+    }
+    #result {
+      width: 100%;
+      height: 50px;
+      text-align: right;
+      margin-bottom: 10px;
+      padding-right: 10px;
+      font-size: 2em;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+    .button {
+      width: 60px;
+      height: 60px;
+      font-size: 1.5em;
+      margin: 5px;
+      border: none;
+      border-radius: 5px;
+      color: #fff;
+    }
+    .button-row {
+      display: flex;
+    }
+    .button.number {
+      background-color: #6a0dad; /* Purple */
+    }
+    .button.operation {
+      background-color: #ff4500; /* Orange */
+    }
+    .button.clear {
+      background-color: #ff4500; /* Orange */
+      width: 100%;
+    }
+    .button.memory {
+      background-color: #4682b4; /* Steel Blue */
+    }
+  </style>
+</head>
+<body>
+
+
+  <div id="calculator">
+    <input type="text" id="result" readonly>
+    <div class="button-row">
+      <button class="button memory" onclick="memoryClear()">MC</button>
+      <button class="button memory" onclick="memoryRecall()">MR</button>
+      <button class="button memory" onclick="memoryAdd()">M+</button>
+      <button class="button memory" onclick="memorySubtract()">M-</button>
+    </div>
+    <div class="button-row">
+      <button class="button number" onclick="appendNumber('7')">7</button>
+      <button class="button number" onclick="appendNumber('8')">8</button>
+      <button class="button number" onclick="appendNumber('9')">9</button>
+      <button class="button operation" onclick="setOperation('/')">/</button>
+    </div>
+    <div class="button-row">
+      <button class="button number" onclick="appendNumber('4')">4</button>
+      <button class="button number" onclick="appendNumber('5')">5</button>
+      <button class="button number" onclick="appendNumber('6')">6</button>
+      <button class="button operation" onclick="setOperation('*')">*</button>
+    </div>
+    <div class="button-row">
+      <button class="button number" onclick="appendNumber('1')">1</button>
+      <button class="button number" onclick="appendNumber('2')">2</button>
+      <button class="button number" onclick="appendNumber('3')">3</button>
+      <button class="button operation" onclick="setOperation('-')">-</button>
+    </div>
+    <div class="button-row">
+      <button class="button number" onclick="appendNumber('0')">0</button>
+      <button class="button number" onclick="appendNumber('.')">.</button>
+      <button class="button operation" onclick="calculateResult()">=</button>
+      <button class="button operation" onclick="setOperation('+')">+</button>
+    </div>
+    <div class="button-row">
+      <button class="button clear" onclick="clearResult()">C</button>
+    </div>
+  </div>
+
+
+  <script>
+    let currentInput = '';
+    let previousInput = '';
+    let operation = null;
+    let memory = 0;
+
+    document.addEventListener('keydown', function(event) {
+      const key = event.key;
+      if (!isNaN(key)) {
+        appendNumber(key);
+      } else if (key === '.') {
+        appendNumber('.');
+      } else if (key === '+' || key === '-' || key === '*' || key === '/') {
+        setOperation(key);
+      } else if (key === 'Enter') {
+        calculateResult();
+      } else if (key === 'Escape') {
+        clearResult();
+      }
+    });
+
+    function appendNumber(number) {
+      if (number === '.' && currentInput.includes('.')) return;
+      currentInput += number;
+      updateResult();
+    }
+
+    function setOperation(op) {
+      if (currentInput === '') return;
+      if (previousInput !== '') {
+        calculateResult();
+      }
+      operation = op;
+      previousInput = currentInput;
+      currentInput = '';
+    }
+
+    function calculateResult() {
+      let result;
+      const prev = parseFloat(previousInput);
+      const current = parseFloat(currentInput);
+      if (isNaN(prev) || isNaN(current)) return;
+
+      switch (operation) {
+        case '+':
+          result = prev + current;
+          break;
+        case '-':
+          result = prev - current;
+          break;
+        case '*':
+          result = prev * current;
+          break;
+        case '/':
+          result = prev / current;
+          break;
+        default:
+          return;
+      }
+      currentInput = result.toString();
+      operation = undefined;
+      previousInput = '';
+      updateResult();
+    }
+
+    function clearResult() {
+      currentInput = '';
+      previousInput = '';
+      operation = null;
+      updateResult();
+    }
+
+    function updateResult() {
+      document.getElementById('result').value = currentInput;
+    }
+
+    function memoryClear() {
+      memory = 0;
+    }
+
+    function memoryRecall() {
+      currentInput = memory.toString();
+      updateResult();
+    }
+
+    function memoryAdd() {
+      memory += parseFloat(currentInput);
+    }
+
+    function memorySubtract() {
+      memory -= parseFloat(currentInput);
+    }
+  </script>
+  
+</body>
+</html>

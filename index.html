@@ -167,6 +167,32 @@
             overflow-x: auto;
             white-space: pre-wrap;
         }
+
+        .tooltip {
+            position: relative;
+            display: inline-block;
+            cursor: pointer;
+        }
+
+        .tooltip .tooltiptext {
+            visibility: hidden;
+            width: 200px;
+            background-color: black;
+            color: #fff;
+            text-align: center;
+            border-radius: 6px;
+            padding: 5px;
+            position: absolute;
+            z-index: 1;
+            bottom: 125%; /* Position above the text */
+            left: 50%;
+            margin-left: -100px;
+            font-size: 16px; /* Big, easy to read font */
+        }
+
+        .tooltip:hover .tooltiptext {
+            visibility: visible;
+        }
     </style>
 </head>
 <body>
@@ -193,11 +219,11 @@
     <p>Colors in CSS can be specified using predefined color names, HEX values, RGB, RGBA, HSL, and HSLA values. Here are some examples:</p>
     <ul>
         <li><strong>Color Names:</strong> <span style="color: red;">red</span>, <span style="color: blue;">blue</span>, <span style="color: green;">green</span></li>
-        <li><strong>HEX Values:</strong> <span style="color: #ff0000;">#ff0000</span>, <span style="color: #0000ff;">#0000ff</span>, <span style="color: #008000;">#008000</span></li>
-        <li><strong>RGB Values:</strong> <span style="color: rgb(255, 0, 0);">rgb(255, 0, 0)</span>, <span style="color: rgb(0, 0, 255);">rgb(0, 0, 255)</span>, <span style="color: rgb(0, 128, 0);">rgb(0, 128, 0)</span></li>
-        <li><strong>RGBA Values:</strong> <span style="color: rgba(255, 0, 0, 0.5);">rgba(255, 0, 0, 0.5)</span>, <span style="color: rgba(0, 0, 255, 0.5);">rgba(0, 0, 255, 0.5)</span>, <span style="color: rgba(0, 128, 0, 0.5);">rgba(0, 128, 0, 0.5)</span></li>
-        <li><strong>HSL Values:</strong> <span style="color: hsl(0, 100%, 50%);">hsl(0, 100%, 50%)</span>, <span style="color: hsl(240, 100%, 50%);">hsl(240, 100%, 50%)</span>, <span style="color: hsl(120, 100%, 25%);">hsl(120, 100%, 25%)</span></li>
-        <li><strong>HSLA Values:</strong> <span style="color: hsla(0, 100%, 50%, 0.5);">hsla(0, 100%, 50%, 0.5)</span>, <span style="color: hsla(240, 100%, 50%, 0.5);">hsla(240, 100%, 50%, 0.5)</span>, <span style="color: hsla(120, 100%, 25%, 0.5);">hsla(120, 100%, 25%, 0.5)</span></li>
+        <li><strong class="tooltip">HEX Values*:<span class="tooltiptext">Hexadecimal color values</span></strong> <span style="color: #ff0000;">#ff0000</span>, <span style="color: #0000ff;">#0000ff</span>, <span style="color: #008000;">#008000</span></li>
+        <li><strong class="tooltip">RGB Values*:<span class="tooltiptext">Red, Green, Blue color values</span></strong> <span style="color: rgb(255, 0, 0);">rgb(255, 0, 0)</span>, <span style="color: rgb(0, 0, 255);">rgb(0, 0, 255)</span>, <span style="color: rgb(0, 128, 0);">rgb(0, 128, 0)</span></li>
+        <li><strong class="tooltip">RGBA Values*:<span class="tooltiptext">RGB with Alpha (opacity)</span></strong> <span style="color: rgba(255, 0, 0, 0.5);">rgba(255, 0, 0, 0.5)</span>, <span style="color: rgba(0, 0, 255, 0.5);">rgba(0, 0, 255, 0.5)</span>, <span style="color: rgba(0, 128, 0, 0.5);">rgba(0, 128, 0, 0.5)</span></li>
+        <li><strong class="tooltip">HSL Values*:<span class="tooltiptext">Hue, Saturation, Lightness</span></strong> <span style="color: hsl(0, 100%, 50%);">hsl(0, 100%, 50%)</span>, <span style="color: hsl(240, 100%, 50%);">hsl(240, 100%, 50%)</span>, <span style="color: hsl(120, 100%, 25%);">hsl(120, 100%, 25%)</span></li>
+        <li><strong class="tooltip">HSLA Values*:<span class="tooltiptext">HSL with Alpha (opacity)</span></strong> <span style="color: hsla(0, 100%, 50%, 0.5);">hsla(0, 100%, 50%, 0.5)</span>, <span style="color: hsla(240, 100%, 50%, 0.5);">hsla(240, 100%, 50%, 0.5)</span>, <span style="color: hsla(120, 100%, 25%, 0.5);">hsla(120, 100%, 25%, 0.5)</span></li>
     </ul>
 </section>
 

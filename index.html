@@ -193,6 +193,34 @@
         .tooltip:hover .tooltiptext {
             visibility: visible;
         }
+
+        /* Dropdown Menu Styles */
+        select {
+            font-size: 18px; /* Increase font size */
+            padding: 10px; /* Add padding */
+            border-radius: 8px; /* Rounded corners */
+            border: 2px solid #333; /* Border color */
+            background-color: #f4f4f4; /* Background color */
+            color: #333; /* Text color */
+            appearance: none; /* Remove default arrow */
+            background-image: url('data:image/svg+xml;charset=US-ASCII,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 4 5"><path fill="%23333" d="M2 0L0 2h4zm0 5L0 3h4z"/></svg>'); /* Custom arrow */
+            background-repeat: no-repeat;
+            background-position: right 10px center;
+            background-size: 10px;
+        }
+
+        select:focus {
+            outline: none; /* Remove default focus outline */
+            border-color: #007BFF; /* Change border color on focus */
+        }
+
+        /* Increase size of URL, color, and shorthand examples */
+        .background-color-example,
+        .background-image-example,
+        .background-shorthand-example {
+            height: 300px; /* Increase height */
+            font-size: 2em; /* Increase font size */
+        }
     </style>
 </head>
 <body>
@@ -228,13 +256,13 @@
 </section>
 
     <section id="backgrounds">
-        <h2>Backgrounds</h2>
-        <div class="showcase">
-            <div class="showcase-demo">
-                <div class="background-example">Background Image with Gradient</div>
-            </div>
-            <div class="showcase-code">
-                <textarea id="background-code">
+    <h2>Backgrounds</h2>
+    <div class="showcase">
+        <div class="showcase-demo">
+            <div class="background-example">Background Image with Gradient</div>
+        </div>
+        <div class="showcase-code">
+            <textarea id="background-code">
 .background-example {
     background: linear-gradient(to right, rgba(178, 223, 219, 0.5), rgba(128, 203, 196, 0.5)), 
                 url('technology.jpg') no-repeat center center;
@@ -246,20 +274,84 @@
     color: white;
     font-size: 1.5em;
 }
-                </textarea>
-            </div>
+            </textarea>
         </div>
-        <h3>Background Properties</h3>
-        <p>CSS provides several properties to control the background of an element:</p>
-        <ul>
-            <li><strong>background-color:</strong> Sets the background color of an element. Example: <code>background-color: lightblue;</code></li>
-            <li><strong>background-image:</strong> Sets one or more background images for an element. Example: <code>background-image: url('image.jpg');</code></li>
-            <li><strong>background-repeat:</strong> Specifies how background images are repeated. Example: <code>background-repeat: no-repeat;</code></li>
-            <li><strong>background-attachment:</strong> Sets whether a background image is fixed or scrolls with the rest of the page. Example: <code>background-attachment: fixed;</code></li>
-            <li><strong>background-position:</strong> Sets the initial position of a background image. Example: <code>background-position: center center;</code></li>
-            <li><strong>background:</strong> A shorthand property for setting all background properties at once. Example: <code>background: lightblue url('image.jpg') no-repeat fixed center;</code></li>
-        </ul>
+    </div>
+    <h3>Background Properties</h3>
+    <section id="background-color">
+        <h4>Background Color</h4>
+        <p>Sets the background color of an element. Example: <code>background-color: lightblue;</code></p>
+        <input type="text" id="background-color-input" placeholder="Enter color value (e.g., lightblue, #ff0000)">
+        <div class="showcase-demo">
+            <div class="background-color-example" style="background-color: lightblue;">Background Color Example</div>
+        </div>
     </section>
+    <section id="background-image">
+        <h4>Background Image</h4>
+        <p>Sets one or more background images for an element. Example: <code>background-image: url('image.jpg');</code></p>
+        <input type="text" id="background-image-input" placeholder="Enter image URL (e.g., 'technology.jpg')">
+        <div class="showcase-demo">
+            <div class="background-image-example" style="background-image: url('technology.jpg');">Background Image Example</div>
+        </div>
+    </section>
+    <section id="background-repeat">
+        <h4>Background Repeat</h4>
+        <p>Specifies how background images are repeated. Example: 
+            <select id="background-repeat-example">
+                <option value="repeat">repeat</option>
+                <option value="repeat-x">repeat-x</option>
+                <option value="repeat-y">repeat-y</option>
+                <option value="no-repeat">no-repeat</option>
+                <option value="space">space</option>
+                <option value="round">round</option>
+            </select>
+        </p>
+        <div class="showcase-demo">
+            <div class="background-repeat-example" style="background-repeat: repeat;">Background Repeat Example</div>
+        </div>
+    </section>
+    <section id="background-attachment">
+        <h4>Background Attachment</h4>
+        <p>Sets whether a background image is fixed or scrolls with the rest of the page. Example: 
+            <select id="background-attachment-example">
+                <option value="scroll">scroll</option>
+                <option value="fixed">fixed</option>
+                <option value="local">local</option>
+            </select>
+        </p>
+        <div class="showcase-demo">
+            <div class="background-attachment-example" style="background-attachment: scroll;">Background Attachment Example</div>
+        </div>
+    </section>
+    <section id="background-position">
+        <h4>Background Position</h4>
+        <p>Sets the initial position of a background image. Example: 
+            <select id="background-position-example">
+                <option value="left top">left top</option>
+                <option value="left center">left center</option>
+                <option value="left bottom">left bottom</option>
+                <option value="right top">right top</option>
+                <option value="right center">right center</option>
+                <option value="right bottom">right bottom</option>
+                <option value="center top">center top</option>
+                <option value="center center">center center</option>
+                <option value="center bottom">center bottom</option>
+            </select>
+        </p>
+        <div class="showcase-demo">
+            <div class="background-position-example" style="background-position: center center;">Background Position Example</div>
+        </div>
+    </section>
+    <section id="background-shorthand">
+        <h4>Background Shorthand</h4>
+        <p>A shorthand property for setting all background properties at once. Example: <code>background: lightblue url('image.jpg') no-repeat fixed center;</code></p>
+        <input type="text" id="background-shorthand-input" placeholder="Enter shorthand value (e.g., 'lightblue url('image.jpg') no-repeat fixed center')">
+        <div class="showcase-demo">
+            <div class="background-shorthand-example" style="background: lightblue url('Rick.webp') no-repeat fixed center;">Background Shorthand Example</div>
+        </div>
+    </section>
+</section>
+
     <section id="border-image">
         <h2>Border Image</h2>
         <div class="border-image-example">Border Image Example</div>
@@ -299,6 +391,55 @@
                     }
                 });
             });
+
+            // Add event listener for background-repeat dropdown
+            const backgroundRepeatExample = document.getElementById('background-repeat-example');
+            backgroundRepeatExample.addEventListener('change', () => {
+                const style = document.createElement('style');
+                style.innerHTML = `.background-repeat-example { background-repeat: ${backgroundRepeatExample.value}; }`;
+                document.head.appendChild(style);
+            });
+
+            // Add event listener for background-attachment dropdown
+            const backgroundAttachmentExample = document.getElementById('background-attachment-example');
+            backgroundAttachmentExample.addEventListener('change', () => {
+                const style = document.createElement('style');
+                style.innerHTML = `.background-attachment-example { background-attachment: ${backgroundAttachmentExample.value}; }`;
+                document.head.appendChild(style);
+            });
+
+            // Add event listener for background-position dropdown
+            const backgroundPositionExample = document.getElementById('background-position-example');
+            backgroundPositionExample.addEventListener('change', () => {
+                const style = document.createElement('style');
+                style.innerHTML = `.background-position-example { background-position: ${backgroundPositionExample.value}; }`;
+                document.head.appendChild(style);
+            });
+
+            // Add event listener for background-color input
+            const backgroundColorInput = document.getElementById('background-color-input');
+            backgroundColorInput.addEventListener('input', () => {
+                const style = document.createElement('style');
+                style.innerHTML = `.background-color-example { background-color: ${backgroundColorInput.value}; }`;
+                document.head.appendChild(style);
+            });
+
+            // Add event listener for background-image input
+            const backgroundImageInput = document.getElementById('background-image-input');
+            backgroundImageInput.addEventListener('input', () => {
+                const style = document.createElement('style');
+                style.innerHTML = `.background-image-example { background-image: url(${backgroundImageInput.value}); }`;
+                document.head.appendChild(style);
+            });
+
+            // Add event listener for background-shorthand input
+            const backgroundShorthandInput = document.getElementById('background-shorthand-input');
+            backgroundShorthandInput.addEventListener('input', () => {
+                const style = document.createElement('style');
+                style.innerHTML = `.background-shorthand-example { background: ${backgroundShorthandInput.value}; }`;
+                document.head.appendChild(style);
+            });
+
         });
     </script>
 </body>

@@ -56,6 +56,9 @@
     .button.memory {
       background-color: #4682b4; /* Steel Blue */
     }
+    .button.function {
+      background-color: #32cd32; /* Lime Green */
+    }
   </style>
 </head>
 <body>
@@ -96,6 +99,11 @@
     <div class="button-row">
       <button class="button clear" onclick="clearResult()">C</button>
     </div>
+    <div class="button-row">
+      <button class="button function" onclick="calculateSquareRoot()">√</button>
+      <button class="button function" onclick="calculateSquare()">x²</button>
+      <button class="button function" onclick="calculateReciprocal()">1/x</button>
+    </div>
   </div>
 
 
@@ -107,13 +115,14 @@
 
     document.addEventListener('keydown', function(event) {
       const key = event.key;
+      console.log(`Key pressed: ${key}`); // Debugging
       if (!isNaN(key)) {
         appendNumber(key);
       } else if (key === '.') {
         appendNumber('.');
-      } else if (key === '+' || key === '-' || key === '*' || key === '/') {
-        setOperation(key);
-      } else if (key === 'Enter') {
+      } else if (key === '+' || key === '-' || key === '*' || key === '/' || key === 'x') {
+        setOperation(key === 'x' ? '*' : key);
+      } else if (key === 'Enter' || key === '=') {
         calculateResult();
       } else if (key === 'Escape') {
         clearResult();
@@ -121,12 +130,14 @@
     });
 
     function appendNumber(number) {
+      console.log(`Appending number: ${number}`); // Debugging
       if (number === '.' && currentInput.includes('.')) return;
       currentInput += number;
       updateResult();
     }
 
     function setOperation(op) {
+      console.log(`Setting operation: ${op}`); // Debugging
       if (currentInput === '') return;
       if (previousInput !== '') {
         calculateResult();
@@ -137,6 +148,7 @@
     }
 
     function calculateResult() {
+      console.log(`Calculating result`); // Debugging
       let result;
       const prev = parseFloat(previousInput);
       const current = parseFloat(currentInput);
@@ -165,6 +177,7 @@
     }
 
     function clearResult() {
+      console.log(`Clearing result`); // Debugging
       currentInput = '';
       previousInput = '';
       operation = null;
@@ -172,24 +185,50 @@
     }
 
     function updateResult() {
+      console.log(`Updating result: ${currentInput}`); // Debugging
       document.getElementById('result').value = currentInput;
     }
 
     function memoryClear() {
+      console.log(`Memory cleared`); // Debugging
       memory = 0;
     }
 
     function memoryRecall() {
+      console.log(`Memory recalled: ${memory}`); // Debugging
       currentInput = memory.toString();
       updateResult();
     }
 
     function memoryAdd() {
+      console.log(`Memory add: ${currentInput}`); // Debugging
       memory += parseFloat(currentInput);
     }
 
     function memorySubtract() {
+      console.log(`Memory subtract: ${currentInput}`); // Debugging
       memory -= parseFloat(currentInput);
+    }
+
+    function calculateSquareRoot() {
+      console.log(`Calculating square root`); // Debugging
+      if (currentInput === '') return;
+      currentInput = Math.sqrt(parseFloat(currentInput)).toString();
+      updateResult();
+    }
+
+    function calculateSquare() {
+      console.log(`Calculating square`); // Debugging
+      if (currentInput === '') return;
+      currentInput = Math.pow(parseFloat(currentInput), 2).toString();
+      updateResult();
+    }
+
+    function calculateReciprocal() {
+      console.log(`Calculating reciprocal`); // Debugging
+      if (currentInput === '') return;
+      currentInput = (1 / parseFloat(currentInput)).toString();
+      updateResult();
     }
   </script>
   

@@ -224,6 +224,7 @@
     </style>
 </head>
 <body>
+<audio id="background-music" src="La Campenella.mp3" autoplay loop></audio>
     <header>
         <h1>CSS Techniques Showcase</h1>
     </header>
@@ -258,9 +259,6 @@
     <section id="backgrounds">
     <h2>Backgrounds</h2>
     <div class="showcase">
-        <div class="showcase-demo">
-            <div class="background-example">Background Image with Gradient</div>
-        </div>
         <div class="showcase-code">
             <textarea id="background-code">
 .background-example {
@@ -276,14 +274,21 @@
 }
             </textarea>
         </div>
+        <div class="showcase-demo">
+            <div class="background-example">Background Image with Gradient</div>
+        </div>
     </div>
     <h3>Background Properties</h3>
     <section id="background-color">
         <h4>Background Color</h4>
-        <p>Sets the background color of an element. Example: <code>background-color: lightblue;</code></p>
-        <input type="text" id="background-color-input" placeholder="Enter color value (e.g., lightblue, #ff0000)">
-        <div class="showcase-demo">
-            <div class="background-color-example" style="background-color: lightblue;">Background Color Example</div>
+        <div class="showcase">
+            <div class="showcase-code">
+                <p>Sets the background color of an element. Example: <code>background-color: lightblue;</code></p>
+                <textarea id="background-color-input" placeholder="Enter color value (e.g., lightblue, #ff0000)">background-color: lightblue;</textarea>
+            </div>
+            <div class="showcase-demo">
+                <div class="background-color-example" style="background-color: lightblue;">Background Color Example</div>
+            </div>
         </div>
     </section>
     <section id="background-image">
@@ -416,11 +421,11 @@
                 document.head.appendChild(style);
             });
 
-            // Add event listener for background-color input
+            // Add event listener for background-color textarea
             const backgroundColorInput = document.getElementById('background-color-input');
             backgroundColorInput.addEventListener('input', () => {
                 const style = document.createElement('style');
-                style.innerHTML = `.background-color-example { background-color: ${backgroundColorInput.value}; }`;
+                style.innerHTML = `.background-color-example { ${backgroundColorInput.value}; }`;
                 document.head.appendChild(style);
             });
 
